@@ -39,7 +39,7 @@ autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
-autocmd InsertLeave * if pumvisible() == 0|pclose|endif)
+"autocmd InsertLeave * if pumvisible() == 0|pclose|endif)
 set foldcolumn=1
 set winaltkeys=no
 
