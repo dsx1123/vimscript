@@ -18,6 +18,14 @@ filetype plugin on
 
 "Frome this line the vimrc begin
 syntax on
+"set enc=chinese
+""set fenc=chinese
+set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
+
+if has("win32")
+    set guifont=Consolas:h10:cANSI
+	set guifontwide=Consolas:h10
+endif
 set t_Co=256
 set background=dark
 color peaksea
