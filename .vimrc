@@ -23,8 +23,8 @@ syntax on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
 
 if has("win32")
-    set guifont=Consolas:h10:cANSI
-	set guifontwide=Consolas:h10
+    set guifont=Consolas:h11:cANSI
+	set guifontwide=Consolas:h11
 endif
 set t_Co=256
 set background=dark
