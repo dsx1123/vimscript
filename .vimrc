@@ -1,7 +1,7 @@
 "for Bundle 
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
@@ -9,15 +9,16 @@ Bundle 'taglist.vim'
 Bundle 'Mark'
 Bundle 'IndentAnything'
 Bundle 'taglist.vim'
-Bundle 'neocomplcache'
+Bundle 'Shougo/neocomplcache.vim'
+Bundle 'nvie/vim-flake8'
 Bundle 'FuzzyFinder'
 Bundle 'peaksea'
-Bundle 'c.vim'
-filetype plugin on
 
 
 "Frome this line the vimrc begin
 syntax on
+filetype on	
+filetype plugin indent on
 "set enc=chinese
 ""set fenc=chinese
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
@@ -26,27 +27,30 @@ if has("win32")
     set guifont=Consolas:h11:cANSI
 	set guifontwide=Consolas:h11
 endif
+
 set t_Co=256
 set background=dark
 color peaksea
-set number
 set showmode
 set mouse=a
 set nocursorcolumn
 set nu
 set showmatch
-set tabstop=4       
-set softtabstop=4
 set shiftwidth=4  
+set tabstop=4       
+set expandtab
+set softtabstop=4
 set autoindent
 set ignorecase 
 set hlsearch 
-set fdm=syntax
+set fdm=indent
 let mapleader=","
 autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
+autocmd FileType python set foldnestmax=99 | set fdl=99
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
+autocmd BufWritePost *.py call Flake8()
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif)
 set foldcolumn=1
 set winaltkeys=no
