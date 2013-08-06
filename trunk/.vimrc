@@ -1,4 +1,6 @@
-"for Bundle 
+"For Vundle 
+"Need to install python-pip to install Flake8
+
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
@@ -11,6 +13,8 @@ Bundle 'IndentAnything'
 Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'nvie/vim-flake8'
+"Bundle 'scrooloose/syntastic'
+"Bundle 'kevinw/pyflakes-vim'
 Bundle 'FuzzyFinder'
 Bundle 'peaksea'
 
@@ -45,12 +49,13 @@ set ignorecase
 set hlsearch 
 set fdm=indent
 let mapleader=","
+let g:syntastic_python_checkers=['flake8']
 autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=99 | set fdl=99
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
-autocmd BufWritePost *.py call Flake8()
+"autocmd BufWritePost *.py call Flake8()
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif)
 set foldcolumn=1
 set winaltkeys=no
@@ -58,7 +63,7 @@ set winaltkeys=no
 autocmd FileType c,cpp,java Tlist    
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Show_One_File=1
-let Tlist_WinWidth=45
+let Tlist_WinWidth=40
 "configure autocomplete 
 
 "ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q --language-force=c++
