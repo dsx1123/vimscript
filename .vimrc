@@ -13,8 +13,7 @@ Bundle 'IndentAnything'
 Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'nvie/vim-flake8'
-"Bundle 'scrooloose/syntastic'
-"Bundle 'kevinw/pyflakes-vim'
+Bundle 'davidhalter/jedi-vim'
 Bundle 'FuzzyFinder'
 Bundle 'peaksea'
 
@@ -50,6 +49,8 @@ set hlsearch
 set fdm=indent
 let mapleader=","
 let g:syntastic_python_checkers=['flake8']
+let g:jedi#popup_select_first = 0
+let g:jedi#popup_on_dot = 0
 autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
