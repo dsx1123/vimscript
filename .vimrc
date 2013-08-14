@@ -4,6 +4,10 @@
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/vundle/
+
+"To get Vundle plugin
+"git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"
 call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
