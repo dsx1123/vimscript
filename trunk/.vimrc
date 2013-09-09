@@ -17,6 +17,7 @@ Bundle 'IndentAnything'
 Bundle 'taglist.vim'
 Bundle 'Shougo/neocomplcache.vim'
 Bundle 'nvie/vim-flake8'
+Bundle 'scrooloose/nerdtree'
 Bundle 'davidhalter/jedi-vim'
 Bundle 'FuzzyFinder'
 Bundle 'peaksea'
@@ -54,18 +55,18 @@ set fdm=indent
 let mapleader=","
 let g:syntastic_python_checkers=['flake8']
 let g:jedi#popup_select_first = 0
-let g:jedi#popup_on_dot = 0
+let g:jedi#popup_on_dot = 1
 autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=99 | set fdl=99
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd FileType c,cpp,java Tlist    
 "autocmd BufWritePost *.py call Flake8()
 "autocmd InsertLeave * if pumvisible() == 0|pclose|endif)
 set foldcolumn=1
 set winaltkeys=no
-
-autocmd FileType c,cpp,java Tlist    
 let Tlist_Exit_OnlyWindow=1
 let Tlist_Show_One_File=1
 let Tlist_WinWidth=40
@@ -86,6 +87,7 @@ smap <C-k>  <Plug>(neocomplcache_snippets_expand)
 inoremap <expr><CR>  neocomplcache#smart_close_popup() . "\<CR>" 
 " <TAB>: completion. 
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>" 
+map <C-n> :NERDTreeToggle<CR>
 highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
 highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
 
