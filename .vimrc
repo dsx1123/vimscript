@@ -33,6 +33,14 @@ if has("win32")
 	set guifontwide=Consolas:h11
 endif
 
+if has("gui_macvim")
+    map <D-1> :tabfirst<Cr>
+    map <D-2> :tabfirst<Cr>gt
+    map <D-3> :tabfirst<Cr>3gt
+    map <D-4> :tabfirst<Cr>4gt
+    set guifont=Consolas:h14
+endif
+
 set t_Co=256
 set background=dark
 color peaksea
