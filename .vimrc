@@ -114,6 +114,11 @@ autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+"highlight current line and column
+hi CursorLine   cterm=bold term=bold guibg=Grey40
+hi CursorColumn cterm=bold term=bold guibg=Grey40
+nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
+
 map <C-n> :NERDTreeToggle<CR>
 highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
 highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
