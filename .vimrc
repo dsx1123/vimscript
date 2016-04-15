@@ -22,7 +22,7 @@ Bundle 'nginx.vim'
 Bundle 'peaksea'
 
 
-""""Frome this piont the vimrc begin
+"--------From this line the vimrc begin------------------------
 syntax on
 filetype on	
 filetype plugin indent on
@@ -38,6 +38,7 @@ if has("gui_macvim")
     map <D-2> :tabfirst<Cr>gt
     map <D-3> :tabfirst<Cr>3gt
     map <D-4> :tabfirst<Cr>4gt
+    map <D-5> :tabfirst<Cr>5gt
     set guifont=Consolas:h14
 endif
 
@@ -69,7 +70,7 @@ autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=2 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
-autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType") && b:NERDTreeType == "primary") | q | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 
 let NERDTreeIgnore=['.d$[[dir]]', '.pyc$[[file]]']
 "autocmd FileType c,python Tlist    
