@@ -20,6 +20,9 @@ Bundle 'scrooloose/syntastic'
 Bundle 'FuzzyFinder'
 Bundle 'nginx.vim'
 Bundle 'peaksea'
+Bundle 'vim-scripts/applescript.vim'
+Bundle 'vim-scripts/vim-auto-save'
+Plugin 'SirVer/ultisnips'
 
 
 "--------From this line the vimrc begin------------------------
@@ -61,6 +64,10 @@ set fdm=indent
 let mapleader=","
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_quiet_messages={"level":"warnings",}
+"======For autosave=====
+let g:auto_save = 1 " Enable AutoSave 
+let g:auto_save_in_insert_mode = 0
+
 "let g:jedi#popup_select_first = 0
 "let g:jedi#popup_on_dot = 1
 
@@ -71,6 +78,7 @@ autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=2 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
+
 
 let NERDTreeIgnore=['.d$[[dir]]', '.pyc$[[file]]']
 "autocmd FileType c,python Tlist    
@@ -89,6 +97,13 @@ let g:neocomplcache_enable_at_startup = 1
 let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 1
 let g:neocomplcache_enable_auto_select = 1
+
+"For UltiSnips
+let g:UltiSnipsExpandTrigger="<tab>"
+let g:UltiSnipsJumpForwardTrigger="<c-b>"
+let g:UltiSnipsJumpBackwardTrigger="<c-z>"
+
+
 " Recommended key-mappings.
 " " <CR>: close popup and save indent.
 inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
@@ -97,6 +112,14 @@ function! s:my_cr_function()
     " For no inserting <CR> key.
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
+" format xml and json
+function! s:format_file(fileType)
+    if a:fileType == "xml"
+        autocmd %!xmllint --format -
+endfunction
+
+
+command! -nargs=1 Format call s:format_file(<f-args>)
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
