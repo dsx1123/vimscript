@@ -11,6 +11,7 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 Bundle 'L9'
 Bundle 'Mark'
+Bundle 'fholgado/minibufexpl.vim'
 Bundle 'IndentAnything'
 Bundle 'majutsushi/tagbar'
 Bundle 'Shougo/neocomplcache.vim'
@@ -21,8 +22,7 @@ Bundle 'FuzzyFinder'
 Bundle 'nginx.vim'
 Bundle 'peaksea'
 Bundle 'vim-scripts/applescript.vim'
-Bundle 'vim-scripts/vim-auto-save'
-Plugin 'SirVer/ultisnips'
+"Bundle 'vim-scripts/vim-auto-save'
 
 
 "--------From this line the vimrc begin------------------------
@@ -42,7 +42,7 @@ if has("gui_macvim")
     map <D-3> :tabfirst<Cr>3gt
     map <D-4> :tabfirst<Cr>4gt
     map <D-5> :tabfirst<Cr>5gt
-    set guifont=Consolas:h14
+    set guifont=Consolas:h12
 endif
 
 set t_Co=256
@@ -65,15 +65,19 @@ let mapleader=","
 let g:syntastic_python_checkers=['pylint']
 let g:syntastic_quiet_messages={"level":"warnings",}
 "======For autosave=====
-let g:auto_save = 1 " Enable AutoSave 
+let g:auto_save = 0 " Enable AutoSave 
 let g:auto_save_in_insert_mode = 0
 
 "let g:jedi#popup_select_first = 0
 "let g:jedi#popup_on_dot = 1
+"For Minibufer
+let g:miniBufExplAutoStart = 1
+
 
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
+autocmd FileType html set fdn=99 | set foldlevel=99
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=2 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
@@ -88,6 +92,7 @@ set foldcolumn=1
 set winaltkeys=no
 "If you don't need NerdTree, uncomment below line
 "let g:tagbar_left = 1
+nmap <F8> :TagbarToggle<CR>
 
 "ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q --language-force=c++
 set tag=../tags,./tags
@@ -98,10 +103,6 @@ let g:neocomplcache_enable_smart_case = 1
 let g:neocomplcache_min_syntax_length = 1
 let g:neocomplcache_enable_auto_select = 1
 
-"For UltiSnips
-let g:UltiSnipsExpandTrigger="<tab>"
-let g:UltiSnipsJumpForwardTrigger="<c-b>"
-let g:UltiSnipsJumpBackwardTrigger="<c-z>"
 
 
 " Recommended key-mappings.
@@ -116,6 +117,8 @@ endfunction
 function! s:format_file(fileType)
     if a:fileType == "xml"
         autocmd %!xmllint --format -
+    if a:fileType == "python"
+        autocmd %!python -m json.tool
 endfunction
 
 
@@ -146,6 +149,7 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 map <C-n> :NERDTreeToggle<CR>
 highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
 highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
+highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
 
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)
@@ -163,3 +167,29 @@ if has("gui_running")
 
     autocmd VimEnter * call TabPos_Initialize()
 endif
+"For powerline integrate 
+
+set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+ 
+" These lines setup the environment to show graphics and colors correctly.
+set nocompatible
+set t_Co=256
+  
+let g:minBufExplForceSyntaxEnable = 1
+python from powerline.vim import setup as powerline_setup
+python powerline_setup()
+python del powerline_setup
+
+if ! has('gui_running')
+    set ttimeoutlen=10
+    augroup FastEscape
+        autocmd!
+        au InsertEnter * set timeoutlen=0
+        au InsertLeave * set timeoutlen=1000
+    augroup END
+endif
+
+set laststatus=2 " Always display the statusline in all windows
+set guifont=Inconsolata\ for\ Powerline:h14
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+
