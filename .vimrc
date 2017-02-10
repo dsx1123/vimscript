@@ -93,6 +93,7 @@ set winaltkeys=no
 "If you don't need NerdTree, uncomment below line
 "let g:tagbar_left = 1
 nmap <F8> :TagbarToggle<CR>
+nmap <F6> :%!python -m json.tool<CR>
 
 "ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q --language-force=c++
 set tag=../tags,./tags
@@ -114,15 +115,6 @@ function! s:my_cr_function()
     return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
 endfunction
 " format xml and json
-function! s:format_file(fileType)
-    if a:fileType == "xml"
-        autocmd %!xmllint --format -
-    if a:fileType == "python"
-        autocmd %!python -m json.tool
-endfunction
-
-
-command! -nargs=1 Format call s:format_file(<f-args>)
 
 " <TAB>: completion.
 inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
@@ -167,9 +159,24 @@ if has("gui_running")
 
     autocmd VimEnter * call TabPos_Initialize()
 endif
-"For powerline integrate 
 
+function! Format_JSON_XML()
+    echom &filetype
+    if &filetype == "xml"
+        exec ":%!xmllint --format -"
+    endif
+    if &filetype == "json"
+        exec ":%!python -m json.tool"
+    endif 
+endfunction
+nmap <F6> :call Format_JSON_XML()<CR>
+
+
+"For powerline integrate 
 set rtp+=/Users/raguay/Library/Python/2.7/lib/python/site-packages/powerline/bindings/vim
+set laststatus=2 " Always display the statusline in all windows
+set guifont=Inconsolata\ for\ Powerline:h14
+set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
  
 " These lines setup the environment to show graphics and colors correctly.
 set nocompatible
@@ -189,7 +196,4 @@ if ! has('gui_running')
     augroup END
 endif
 
-set laststatus=2 " Always display the statusline in all windows
-set guifont=Inconsolata\ for\ Powerline:h14
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
 
