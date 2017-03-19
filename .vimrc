@@ -93,7 +93,7 @@ set winaltkeys=no
 "If you don't need NerdTree, uncomment below line
 "let g:tagbar_left = 1
 nmap <F8> :TagbarToggle<CR>
-nmap <F6> :%!python -m json.tool<CR>
+map <F7> :NERDTreeToggle<CR>
 
 "ctags -R --c++-kinds=+lpx --fields=+iaS --extra=+q --language-force=c++
 set tag=../tags,./tags
@@ -138,7 +138,6 @@ hi CursorLine   cterm=bold term=bold guibg=Grey40
 hi CursorColumn cterm=bold term=bold guibg=Grey40
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
-map <C-n> :NERDTreeToggle<CR>
 highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
 highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
 highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
@@ -169,6 +168,7 @@ function! Format_JSON_XML()
         exec ":%!python -m json.tool"
     endif 
 endfunction
+
 nmap <F6> :call Format_JSON_XML()<CR>
 
 
