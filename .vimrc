@@ -62,7 +62,7 @@ set ignorecase
 set hlsearch 
 set fdm=indent
 let mapleader=","
-let g:syntastic_python_checkers=['pylint']
+let g:syntastic_python_checkers=['flake8', 'pylint']
 let g:syntastic_quiet_messages={"level":"warnings",}
 "======For autosave=====
 let g:auto_save = 0 " Enable AutoSave 
@@ -71,7 +71,7 @@ let g:auto_save_in_insert_mode = 0
 "let g:jedi#popup_select_first = 0
 "let g:jedi#popup_on_dot = 1
 "For Minibufer
-let g:miniBufExplAutoStart = 1
+let g:miniBufExplAutoStart = 0
 
 
 autocmd FileType python setlocal completeopt-=preview
