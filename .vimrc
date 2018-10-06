@@ -22,6 +22,8 @@ Bundle 'FuzzyFinder'
 Bundle 'nginx.vim'
 Bundle 'peaksea'
 Bundle 'vim-scripts/applescript.vim'
+Bundle 'heavenshell/vim-pydocstring'
+Plugin 'scrooloose/nerdcommenter'
 "Bundle 'vim-scripts/vim-auto-save'
 
 
@@ -42,6 +44,9 @@ if has("gui_macvim")
     map <D-3> :tabfirst<Cr>3gt
     map <D-4> :tabfirst<Cr>4gt
     map <D-5> :tabfirst<Cr>5gt
+    map <D-6> :tabfirst<Cr>6gt
+    map <D-7> :tabfirst<Cr>7gt
+    map <D-8> :tabfirst<Cr>8gt
     set guifont=Consolas:h12
 endif
 
@@ -148,9 +153,15 @@ hi CursorLine   cterm=bold term=bold guibg=Grey40
 hi CursorColumn cterm=bold term=bold guibg=Grey40
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
+"for NERD Commenter
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+
+
 highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
 highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
 highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
+
 
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)
