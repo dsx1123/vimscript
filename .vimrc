@@ -21,9 +21,10 @@ Bundle 'scrooloose/syntastic'
 Bundle 'FuzzyFinder'
 Bundle 'nginx.vim'
 Bundle 'peaksea'
-Bundle 'vim-scripts/applescript.vim'
 Bundle 'heavenshell/vim-pydocstring'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'dearrrfish/vim-applescript'
+Plugin 'Vimjas/vim-python-pep8-indent'
 "Bundle 'vim-scripts/vim-auto-save'
 
 
