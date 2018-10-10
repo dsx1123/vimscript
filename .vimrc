@@ -2,30 +2,29 @@
 "
 set nocompatible
 filetype off
-set rtp+=~/.vim/bundle/vundle/
+set rtp+=~/.vim/Bundle/vundle/
 
 "To get Vundle plugin
-"git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+"git clone https://github.com/gmarik/vundle.git ~/.vim/Bundle/vundle
 "
 call vundle#rc()
-Bundle 'gmarik/vundle'
-Bundle 'L9'
-Bundle 'Mark'
-Bundle 'fholgado/minibufexpl.vim'
-Bundle 'IndentAnything'
-Bundle 'majutsushi/tagbar'
-Bundle 'Shougo/neocomplcache.vim'
-Bundle 'nvie/vim-flake8'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'FuzzyFinder'
-Bundle 'nginx.vim'
-Bundle 'peaksea'
-Bundle 'heavenshell/vim-pydocstring'
+Plugin 'gmarik/vundle'
+Plugin 'L9'
+Plugin 'Mark'
+Plugin 'fholgado/minibufexpl.vim'
+Plugin 'majutsushi/tagbar'
+Plugin 'Shougo/neocomplcache.vim'
+Plugin 'nvie/vim-flake8'
+Plugin 'scrooloose/nerdtree'
+Plugin 'scrooloose/syntastic'
+Plugin 'FuzzyFinder'
+Plugin 'nginx.vim'
+Plugin 'peaksea'
+Plugin 'heavenshell/vim-pydocstring'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'dearrrfish/vim-applescript'
 Plugin 'Vimjas/vim-python-pep8-indent'
-"Bundle 'vim-scripts/vim-auto-save'
+"Plugin 'vim-scripts/vim-auto-save'
 
 
 "--------From this line the vimrc begin------------------------
