@@ -12,23 +12,26 @@ Plugin 'gmarik/vundle'
 Plugin 'L9'
 Plugin 'Mark'
 Plugin 'fholgado/minibufexpl.vim'
+Plugin 'davidhalter/jedi-vim'
 Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/neocomplcache.vim'
 Plugin 'nvie/vim-flake8'
 Plugin 'scrooloose/nerdtree'
 Plugin 'scrooloose/syntastic'
 Plugin 'FuzzyFinder'
 Plugin 'nginx.vim'
 Plugin 'peaksea'
+Plugin 'dracula/vim'
+Plugin 'romainl/Apprentice'
 Plugin 'heavenshell/vim-pydocstring'
 Plugin 'scrooloose/nerdcommenter'
+Plugin 'vim-python/python-syntax'
 Plugin 'dearrrfish/vim-applescript'
 Plugin 'Vimjas/vim-python-pep8-indent'
 "Plugin 'vim-scripts/vim-auto-save'
 
 
 "--------From this line the vimrc begin------------------------
-syntax on
+syntax enable
 filetype on	
 filetype plugin indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
@@ -51,8 +54,8 @@ if has("gui_macvim")
 endif
 
 set t_Co=256
-set background=dark
-color peaksea
+"set background=dark
+colorscheme dracula
 set showmode
 set mouse=a
 set nocursorcolumn
@@ -70,11 +73,21 @@ let mapleader=","
 let g:syntastic_python_checkers=['flake8', 'pylint']
 let g:syntastic_quiet_messages={"level":"warnings",}
 "======For autosave=====
-let g:auto_save = 0 " Enable AutoSave 
-let g:auto_save_in_insert_mode = 0
+"let g:auto_save = 0 " Enable AutoSave 
+"let g:auto_save_in_insert_mode = 0
 
-"let g:jedi#popup_select_first = 0
-"let g:jedi#popup_on_dot = 1
+" jedi options
+"let g:jedi#auto_initialization = 1
+""let g:jedi#completions_enabled = 0
+"let g:jedi#auto_vim_configuration = 0
+"let g:jedi#smart_auto_mappings = 0
+""let g:jedi#popup_on_dot = 0
+"let g:jedi#completions_command = ""
+"let g:jedi#show_call_signatures = "1"
+"let g:jedi#show_call_signatures_delay = 0
+"let g:jedi#use_tabs_not_buffers = 0
+"let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
+"let g:jedi#enable_speed_debugging=0
 "For Minibufer
 let g:miniBufExplAutoStart = 1
 
@@ -84,7 +97,7 @@ autocmd FileType c set foldnestmax=1 | set fdl=0
 autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType html set fdn=99 | set foldlevel=99
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
-autocmd FileType python set foldnestmax=2 | set fdl=0| set fdm=indent
+autocmd FileType python set foldnestmax=4 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 
@@ -104,50 +117,36 @@ map <F7> :NERDTreeToggle<CR>
 set tag=../tags,./tags
 set cot=menu,longest
 let g:acp_enableAtStartup = 0
-let g:neocomplcache_enable_at_startup = 1
-let g:neocomplcache_enable_smart_case = 1
-let g:neocomplcache_min_syntax_length = 3 
-let g:neocomplcache_enable_auto_select = 1
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+"python highlight syntax
+" highlight python and self function
+"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
+"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
+"hi def link pythonFunction Function
+let g:python_highlight_all = 1
 
 
-" Recommended key-mappings.
-" " <CR>: close popup and save indent.
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-    "return neocomplcache#smart_close_popup() . "\<CR>"
-    " For no inserting <CR> key.
-    return pumvisible() ? neocomplcache#close_popup() : "\<CR>"
-endfunction
-" format xml and json
 
-" <TAB>: completion.
-inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
-" <C-h>, <BS>: close popup and delete backword char.
-inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-inoremap <expr><C-y>  neocomplcache#close_popup()
-inoremap <expr><C-e>  neocomplcache#cancel_popup()
+ "<TAB>: completion.
+"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
+ "<C-h>, <BS>: close popup and delete backword char.
+"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
+"inoremap <expr><C-y>  neocomplcache#close_popup()
+"inoremap <expr><C-e>  neocomplcache#cancel_popup()
 " map <silent><A-Right> :tabnext<CR>
 " map <silent><A-Left> :tabprevious<CR>
 " Close popup by <Space>.
 
-autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
-
 " Enable heavy omni completion.
-if !exists('g:neocomplete#sources#omni#input_patterns')
-    let g:neocomplete#sources#omni#input_patterns = {}
-endif
+"if !exists('g:neocomplete#sources#omni#input_patterns')
+    "let g:neocomplete#sources#omni#input_patterns = {}
+"endif
 
 " retain the visual selection after having pressed > or < 
 vnoremap > >gv
@@ -163,9 +162,9 @@ nmap <C-_> <Plug>NERDCommenterToggle
 vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
 
 
-highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
-highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
-highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
+"highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
+"highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
+"highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
 
 
 if has("gui_running")
@@ -221,5 +220,3 @@ if ! has('gui_running')
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
-
-
