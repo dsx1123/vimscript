@@ -27,8 +27,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-python/python-syntax'
 Plugin 'dearrrfish/vim-applescript'
 Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'ervandew/supertab'
-"Plugin 'vim-scripts/vim-auto-save'
+Plugin 'maxmellon/vim-jsx-pretty'
 
 
 "--------From this line the vimrc begin------------------------
@@ -102,6 +101,8 @@ autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=4 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
+au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml foldmethod=indent
+ autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 
 
 let NERDTreeIgnore=['.d$[[dir]]', '.pyc$[[file]]']
