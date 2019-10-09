@@ -27,6 +27,7 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-python/python-syntax'
 Plugin 'dearrrfish/vim-applescript'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'ervandew/supertab'
 "Plugin 'vim-scripts/vim-auto-save'
 
 
@@ -90,6 +91,7 @@ let g:syntastic_quiet_messages={"level":"warnings",}
 "let g:jedi#enable_speed_debugging=0
 "For Minibufer
 let g:miniBufExplAutoStart = 1
+let g:miniBufExplBuffersNeeded = 1
 
 
 autocmd FileType python setlocal completeopt-=preview
