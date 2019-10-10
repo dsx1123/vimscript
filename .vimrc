@@ -41,21 +41,12 @@ if has("win32")
 	set guifontwide=Consolas:h11
 endif
 
-if has("gui_macvim")
-    map <D-1> :tabfirst<Cr>
-    map <D-2> :tabfirst<Cr>gt
-    map <D-3> :tabfirst<Cr>3gt
-    map <D-4> :tabfirst<Cr>4gt
-    map <D-5> :tabfirst<Cr>5gt
-    map <D-6> :tabfirst<Cr>6gt
-    map <D-7> :tabfirst<Cr>7gt
-    map <D-8> :tabfirst<Cr>8gt
-    set guifont=Consolas:h12
-endif
 
 set t_Co=256
-"set background=dark
+let g:dracula_italic = 0
 colorscheme dracula
+highlight Normal ctermbg=None
+
 set showmode
 set mouse=a
 set nocursorcolumn
