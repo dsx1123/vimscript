@@ -27,6 +27,8 @@ Plugin 'scrooloose/nerdcommenter'
 Plugin 'vim-python/python-syntax'
 Plugin 'dearrrfish/vim-applescript'
 Plugin 'Vimjas/vim-python-pep8-indent'
+Plugin 'leafgarland/typescript-vim'
+Plugin 'pangloss/vim-javascript'
 Plugin 'maxmellon/vim-jsx-pretty'
 
 
@@ -54,7 +56,6 @@ if has("gui_macvim")
 endif
 
 set t_Co=256
-"set background=dark
 colorscheme dracula
 set showmode
 set mouse=a
@@ -122,7 +123,7 @@ set cot=menu,longest
 let g:acp_enableAtStartup = 0
 " Enable omni completion.
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
@@ -132,6 +133,7 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 "autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
 "hi def link pythonFunction Function
 let g:python_highlight_all = 1
+let g:vim_jsx_pretty_colorful_config = 1
 
 
 
@@ -206,9 +208,6 @@ set laststatus=2 " Always display the statusline in all windows
 set guifont=Inconsolata\ for\ Powerline:h14
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
  
-" These lines setup the environment to show graphics and colors correctly.
-set nocompatible
-set t_Co=256
   
 let g:minBufExplForceSyntaxEnable = 1
 python3 from powerline.vim import setup as powerline_setup
