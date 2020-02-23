@@ -2,34 +2,12 @@
 "
 set nocompatible
 filetype off
-set rtp+=~/.vim/Bundle/vundle/
+"set rtp+=~/.vim/Bundle/vundle/
 
 "To get Vundle plugin
 "git clone https://github.com/gmarik/vundle.git ~/.vim/Bundle/vundle
 "
-call vundle#rc()
-Plugin 'gmarik/vundle'
-Plugin 'L9'
-Plugin 'Mark'
-Plugin 'fholgado/minibufexpl.vim'
-Plugin 'davidhalter/jedi-vim'
-Plugin 'majutsushi/tagbar'
-Plugin 'nvie/vim-flake8'
-Plugin 'scrooloose/nerdtree'
-Plugin 'scrooloose/syntastic'
-Plugin 'FuzzyFinder'
-Plugin 'nginx.vim'
-Plugin 'peaksea'
-Plugin 'dracula/vim'
-Plugin 'romainl/Apprentice'
-Plugin 'heavenshell/vim-pydocstring'
-Plugin 'scrooloose/nerdcommenter'
-Plugin 'vim-python/python-syntax'
-Plugin 'dearrrfish/vim-applescript'
-Plugin 'Vimjas/vim-python-pep8-indent'
-Plugin 'leafgarland/typescript-vim'
-Plugin 'pangloss/vim-javascript'
-Plugin 'maxmellon/vim-jsx-pretty'
+source ~/config/vundle.vim
 
 
 "--------From this line the vimrc begin------------------------
