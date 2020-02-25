@@ -72,7 +72,8 @@ autocmd FileType python set foldnestmax=4 | set fdl=0| set fdm=indent
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml.ansible foldmethod=indent
- autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+au BufRead,BufNewFile Vagrantfile set ft=nginx 
 
 
 let NERDTreeIgnore=['.d$[[dir]]', '.pyc$[[file]]']
