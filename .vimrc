@@ -133,8 +133,9 @@ hi CursorColumn cterm=bold term=bold guibg=Grey40
 nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 "for NERD Commenter
-nmap <C-_> <Plug>NERDCommenterToggle
-vmap <C-_> <Plug>NERDCommenterToggle<CR>gv
+nmap // <leader>c<space>
+vmap // <leader>cs
+
 
 
 "highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
@@ -169,7 +170,7 @@ function! Format_JSON_XML()
     endif 
 endfunction
 
-nmap <F6> :call Format_JSON_XML()<CR>
+autocmd Filetype python nmap <F6> :call Format_JSON_XML()<CR>
 
 
 "For powerline integrate 
