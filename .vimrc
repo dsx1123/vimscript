@@ -73,7 +73,7 @@ au BufRead,BufNewFile /etc/nginx/* set ft=nginx
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml.ansible foldmethod=indent
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
-au BufRead,BufNewFile Vagrantfile set ft=nginx 
+au BufRead,BufNewFile Vagrantfile set ft=ruby
 
 
 let NERDTreeIgnore=['.d$[[dir]]', '.pyc$[[file]]']
