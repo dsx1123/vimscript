@@ -97,6 +97,7 @@ autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
+
 "python highlight syntax
 " highlight python and self function
 "autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
@@ -105,24 +106,8 @@ autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 let g:python_highlight_all = 1
 let g:vim_jsx_pretty_colorful_config = 1
 
-
-
- "<TAB>: completion.
-"inoremap <expr><TAB>  pumvisible() ? "\<C-n>" : "\<TAB>"
- "<C-h>, <BS>: close popup and delete backword char.
-"inoremap <expr><C-h> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><BS> neocomplcache#smart_close_popup()."\<C-h>"
-"inoremap <expr><C-y>  neocomplcache#close_popup()
-"inoremap <expr><C-e>  neocomplcache#cancel_popup()
-" map <silent><A-Right> :tabnext<CR>
-" map <silent><A-Left> :tabprevious<CR>
-" Close popup by <Space>.
-
-" Enable heavy omni completion.
-"if !exists('g:neocomplete#sources#omni#input_patterns')
-    "let g:neocomplete#sources#omni#input_patterns = {}
-"endif
-
+" supertab config
+let g:SuperTabDefaultCompletionType = "<c-n>"
 " retain the visual selection after having pressed > or < 
 vnoremap > >gv
 vnoremap < <gv
@@ -135,13 +120,6 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 "for NERD Commenter
 nmap // <leader>c<space>
 vmap // <leader>cs
-
-
-
-"highlight FoldColumn ctermbg=bg ctermfg=green guibg=bg guifg=green
-"highlight Folded ctermbg=bg ctermfg=green guibg=bg guifg=green
-"highligh VertSplit ctermbg=bg ctermfg=white guibg=bg guifg=white
-
 
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)
