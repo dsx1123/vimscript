@@ -9,7 +9,6 @@ filetype off
 "
 source ~/config/vundle.vim
 
-
 "--------From this line the vimrc begin------------------------
 syntax enable
 filetype on	
@@ -62,6 +61,8 @@ let g:syntastic_quiet_messages={"level":"warnings",}
 let g:miniBufExplAutoStart = 1
 let g:miniBufExplBuffersNeeded = 1
 
+"For neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType c set foldnestmax=1 | set fdl=0
