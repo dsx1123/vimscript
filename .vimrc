@@ -173,7 +173,6 @@ nmap <F6> :call Format_JSON_XML()<CR>
 
 
 "For powerline integrate 
-set rtp+=/Users/shdu/Library/Python/3.6/lib/python/site-packages/powerline/bindings/vim
 set laststatus=2 " Always display the statusline in all windows
 set guifont=Inconsolata\ for\ Powerline:h14
 set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
