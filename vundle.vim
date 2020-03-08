@@ -5,6 +5,7 @@ call vundle#rc()
 Plugin 'gmarik/vundle'
 Plugin 'L9'
 Plugin 'Mark'
+Plugin 'fatih/vim-go'
 Plugin 'fholgado/minibufexpl.vim'
 Plugin 'davidhalter/jedi-vim'
 Plugin 'Shougo/neocomplete.vim'
