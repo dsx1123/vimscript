@@ -1,7 +1,6 @@
 "For Vundle 
 "
 set nocompatible
-filetype off
 "set rtp+=~/.vim/Bundle/vundle/
 
 "To get Vundle plugin
@@ -10,7 +9,7 @@ filetype off
 source ~/config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
-syntax enable
+syntax on
 filetype on	
 filetype plugin indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
@@ -160,6 +159,7 @@ endfunction
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
+let g:airline_skip_empty_sections = 1
 
 "For powerline integrate 
 "set laststatus=2 " Always display the statusline in all windows
