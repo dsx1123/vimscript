@@ -122,6 +122,12 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 nmap // <leader>c<space>
 vmap // <leader>cs
 
+" for buftabline
+set hidden
+nnoremap <C-N> :bnext<CR>
+nnoremap <C-P> :bprev<CR>
+
+
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)
         let s:count = a:num 
@@ -149,19 +155,18 @@ function! Format_JSON_XML()
     endif 
 endfunction
 
-autocmd Filetype python nmap <F6> :call Format_JSON_XML()<CR>
+autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
 
+set guifont=Inconsolata\ for\ Powerline:h14
+let g:airline#extensions#tabline#enabled = 1
+let g:airline_powerline_fonts = 1
 
 "For powerline integrate 
-set laststatus=2 " Always display the statusline in all windows
-set guifont=Inconsolata\ for\ Powerline:h14
-set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
- 
-  
-let g:minBufExplForceSyntaxEnable = 1
-python3 from powerline.vim import setup as powerline_setup
-python3 powerline_setup()
-python3 del powerline_setup
+"set laststatus=2 " Always display the statusline in all windows
+"set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
+"python3 from powerline.vim import setup as powerline_setup
+"python3 powerline_setup()
+"python3 del powerline_setup
 
 if ! has('gui_running')
     set ttimeoutlen=10
