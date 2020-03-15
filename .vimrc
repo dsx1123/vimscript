@@ -70,6 +70,7 @@ autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType html set fdn=99 | set foldlevel=99
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=4 | set fdl=0| set fdm=indent
+autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml.ansible foldmethod=indent
@@ -155,7 +156,6 @@ function! Format_JSON_XML()
     endif 
 endfunction
 
-autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
 
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:airline#extensions#tabline#enabled = 1
@@ -170,7 +170,7 @@ let g:airline_powerline_fonts = 1
 
 if ! has('gui_running')
     set ttimeoutlen=10
-    augroup FastEscape
+    "augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
         au InsertLeave * set timeoutlen=1000
