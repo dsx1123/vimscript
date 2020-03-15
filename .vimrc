@@ -9,7 +9,6 @@ set nocompatible
 source ~/config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
-syntax on
 filetype on	
 filetype plugin indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
@@ -57,8 +56,8 @@ let g:syntastic_quiet_messages={"level":"warnings",}
 "let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
 "let g:jedi#enable_speed_debugging=0
 "For Minibufer
-let g:miniBufExplAutoStart = 1
-let g:miniBufExplBuffersNeeded = 1
+"let g:miniBufExplAutoStart = 1
+"let g:miniBufExplBuffersNeeded = 1
 
 "For neocomplete
 let g:neocomplete#enable_at_startup = 1
@@ -170,9 +169,10 @@ let g:airline_skip_empty_sections = 1
 
 if ! has('gui_running')
     set ttimeoutlen=10
-    "augroup FastEscape
+    augroup FastEscape
         autocmd!
         au InsertEnter * set timeoutlen=0
         au InsertLeave * set timeoutlen=1000
     augroup END
 endif
+syntax on
