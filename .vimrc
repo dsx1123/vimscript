@@ -154,11 +154,14 @@ function! Format_JSON_XML()
     endif 
 endfunction
 
-
+" For vim-airline
 set guifont=Inconsolata\ for\ Powerline:h14
 let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 let g:airline_skip_empty_sections = 1
+
+" For spelunker
+let g:enable_spelunker_vim = 0
 
 "For powerline integrate 
 "set laststatus=2 " Always display the statusline in all windows
