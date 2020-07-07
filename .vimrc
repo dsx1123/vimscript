@@ -6,7 +6,7 @@ set nocompatible
 "To get Vundle plugin
 "git clone https://github.com/gmarik/vundle.git ~/.vim/Bundle/vundle
 "
-source ~/config/vundle.vim
+source ~/.config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
 filetype on	
@@ -68,7 +68,6 @@ autocmd FileType java set fdn=2 | set foldlevel=1
 autocmd FileType html set fdn=99 | set foldlevel=99
 autocmd FileType cpp  set fdn=2 | set foldlevel=1
 autocmd FileType python set foldnestmax=4 | set fdl=0| set fdm=indent
-autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
 au BufRead,BufNewFile /etc/nginx/* set ft=nginx 
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTreeType")  && b:NERDTreeType == "primary") | q | endif
 au! BufNewFile,BufReadPost *.{yaml,yml} set filetype=yaml.ansible foldmethod=indent
@@ -158,6 +157,7 @@ function! Format_JSON_XML()
         exec ":%!python -m json.tool"
     endif 
 endfunction
+autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
 
 " For vim-airline
 set guifont=Inconsolata\ for\ Powerline:h14
