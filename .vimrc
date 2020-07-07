@@ -128,6 +128,9 @@ set hidden
 nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
+" indentline setting
+let g:indentLine_char = '⦙'
+
 
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)
