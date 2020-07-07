@@ -6,7 +6,7 @@ set nocompatible
 "To get Vundle plugin
 "git clone https://github.com/gmarik/vundle.git ~/.vim/Bundle/vundle
 "
-source ~/.config/vundle.vim
+source ~/.mess_config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
 filetype on	
