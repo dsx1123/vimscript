@@ -10,7 +10,7 @@ source ~/.mess_config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
 filetype on	
-filetype plugin indent on
+filetype indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
 
 if has("win32")
@@ -44,23 +44,19 @@ let g:syntastic_quiet_messages={"level":"warnings",}
 "let g:auto_save_in_insert_mode = 0
 
 " jedi options
-"let g:jedi#auto_initialization = 1
-""let g:jedi#completions_enabled = 0
-"let g:jedi#auto_vim_configuration = 0
-"let g:jedi#smart_auto_mappings = 0
-""let g:jedi#popup_on_dot = 0
-"let g:jedi#completions_command = ""
-"let g:jedi#show_call_signatures = "1"
-"let g:jedi#show_call_signatures_delay = 0
-"let g:jedi#use_tabs_not_buffers = 0
-"let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
-"let g:jedi#enable_speed_debugging=0
-"For Minibufer
-"let g:miniBufExplAutoStart = 1
-"let g:miniBufExplBuffersNeeded = 1
+let g:jedi#auto_initialization = 1
+let g:jedi#completions_enabled = 0
+let g:jedi#auto_vim_configuration = 0
+let g:jedi#smart_auto_mappings = 0
+let g:jedi#popup_on_dot = 0
+let g:jedi#completions_command = ""
+let g:jedi#show_call_signatures = "1"
+let g:jedi#show_call_signatures_delay = 0
+let g:jedi#use_tabs_not_buffers = 0
+let g:jedi#show_call_signatures_modes = 'i'  " ni = also in normal mode
+let g:jedi#enable_speed_debugging=0
 
-"For neocomplete
-let g:neocomplete#enable_at_startup = 1
+
 
 autocmd FileType python setlocal completeopt-=preview
 autocmd FileType c set foldnestmax=1 | set fdl=0
@@ -99,11 +95,6 @@ let g:acp_enableAtStartup = 0
 let g:deoplete#enable_at_startup = 1
 
 
-"python highlight syntax
-" highlight python and self function
-"autocmd BufEnter * syntax match Type /\v\.[a-zA-Z0-9_]+\ze(\[|\s|$|,|\]|\)|\.|:)/hs=s+1
-"autocmd BufEnter * syntax match pythonFunction /\v[[:alnum:]_]+\ze(\s?\()/
-"hi def link pythonFunction Function
 let g:python_highlight_all = 1
 let g:vim_jsx_pretty_colorful_config = 1
 
@@ -120,7 +111,7 @@ nnoremap <Leader>c :set cursorline! cursorcolumn!<CR>
 
 "for NERD Commenter
 nmap // <leader>c<space>
-vmap // <leader>cs
+vmap // <leader>c<space>
 
 " for buftabline
 set hidden
@@ -128,8 +119,11 @@ nnoremap <C-N> :bnext<CR>
 nnoremap <C-P> :bprev<CR>
 
 " indentline setting
-let g:indentLine_char = '⦙'
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+let g:vim_json_conceal = 0 " disable json concel
 
+" for ansible-vim
+let g:ansible_unindent_after_newline = 1
 
 if has("gui_running")
     function! TabPos_ActivateBuffer(num)

@@ -7,12 +7,10 @@ Plugin 'L9'
 Plugin 'Mark'
 Plugin 'fatih/vim-go'
 Plugin 'kamykn/spelunker.vim'
-"Plugin 'fholgado/minibufexpl.vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 Plugin 'tpope/vim-fugitive'
 Plugin 'davidhalter/jedi-vim'
-"Plugin 'Shougo/neocomplete.vim'
 if has('nvim')
     Plugin 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
