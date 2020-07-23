@@ -157,7 +157,8 @@ function! Format_JSON_XML()
         exec ":%!python -m json.tool"
     endif 
 endfunction
-autocmd Filetype python nmap <F5> :call Format_JSON_XML()<CR>
+autocmd Filetype json nmap <F5> :call Format_JSON_XML()<CR>
+autocmd Filetype xml nmap <F5> :call Format_JSON_XML()<CR>
 
 " For vim-airline
 set guifont=Inconsolata\ for\ Powerline:h14
