@@ -19,6 +19,7 @@ else
     Plugin 'roxma/vim-hug-neovim-rpc'
     Plugin 'deoplete-plugins/deoplete-jedi'
 endif
+Plugin 'nathanalderson/yang.vim'
 Plugin 'Yggdroot/indentLine'
 Plugin 'ervandew/supertab'
 Plugin 'majutsushi/tagbar'
