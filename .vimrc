@@ -10,6 +10,7 @@ source ~/.mess_config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
 filetype on	
+filetype plugin on
 filetype indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
 
