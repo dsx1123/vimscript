@@ -163,6 +163,10 @@ let g:airline_skip_empty_sections = 1
 " For spelunker
 let g:enable_spelunker_vim = 0
 
+" for vim-terraform
+let g:terraform_fmt_on_save=1
+
+
 "For powerline integrate 
 "set laststatus=2 " Always display the statusline in all windows
 "set noshowmode " Hide the default mode text (e.g. -- INSERT -- below the statusline)
