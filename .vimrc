@@ -10,6 +10,7 @@ source ~/.mess_config/vundle.vim
 
 "--------From this line the vimrc begin------------------------
 filetype on	
+filetype plugin on
 filetype indent on
 set fileencodings=utf-8,gbk,gb18030,gb2312,cp936
 
@@ -162,6 +163,10 @@ let g:airline_skip_empty_sections = 1
 
 " For spelunker
 let g:enable_spelunker_vim = 0
+
+" for vim-terraform
+let g:terraform_fmt_on_save=1
+
 
 "For powerline integrate 
 "set laststatus=2 " Always display the statusline in all windows
